@@ -4,6 +4,7 @@ import logging
 import pandas as pd 
 from fastapi import FastAPI
 from pydantic import BaseModel,Field
+from fastapi.middleware.cors import CORSMiddleware
 
 import os 
 PORT= int(os.getenv("PORT","8001"))
@@ -21,6 +22,17 @@ app=FastAPI(
     title="House Price Prediction API",
     description="Predict house prices using a trained machine learning model",
     version="1.1.2"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    allow_credentials=False,
+    allow_methods=["GET","POST"],
+    allow_headers=["Content-Type"]
 )
 
 class HouseFeatures(BaseModel):

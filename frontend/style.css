@@ -1,0 +1,78 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.container {
+    width: 100%;
+    max-width: 460px;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#status {
+    overflow-wrap: anywhere;
+}
+
+#result {
+    margin-top: 24px;
+    padding: 18px;
+    background: #eff6ff;
+    border-radius: 8px;
+}
+
+#price {
+    font-size: 26px;
+    font-weight: bold;
+}
