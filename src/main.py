@@ -17,7 +17,7 @@ with open(MODEL_PATH,"rb") as file:
 app=FastAPI(
     title="House Price Prediction API",
     description="Predict house prices using a trained machine learning model",
-    version="1.1.0"
+    version="1.1.2"
 )
 
 class HouseFeatures(BaseModel):
