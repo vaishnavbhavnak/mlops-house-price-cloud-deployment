@@ -1,12 +1,15 @@
 import pickle
 from pathlib import Path 
-
+import logging
 import pandas as pd 
 from fastapi import FastAPI
 from pydantic import BaseModel,Field
 
 import os 
 PORT= int(os.getenv("PORT","8001"))
+
+logging.basicConfig(level=logging.INFO)
+logger=logging.getLogger(__name__)
 
 BASE_DIR=Path(__file__).resolve().parent.parent
 MODEL_PATH=BASE_DIR/"models"/"house_price_model.pkl"
@@ -39,6 +42,12 @@ def health():
     
 @app.post("/predict")
 def predict_price(house:HouseFeatures):
+    logger.info(
+            "Prediction request receiver: area=%s, bedrooms=%s, age=%s",
+            house.area,
+            house.bedrooms,
+            house.age 
+        )
     input_data=pd.DataFrame(
         [[house.area,house.bedrooms,house.age]],
         columns=["area","bedrooms","age"]
